@@ -1,0 +1,49 @@
+server: 
+  port: 443
+  address: 0.0.0.0
+lavalink:
+  server:
+    password: "youshallnotpass"
+    playerUpdateInterval: 1
+    koe:
+      useEpoll: true
+      highPacketPriority: true
+      bufferDurationMs: 400
+      byteBufAllocator: "default"
+    sources:
+      youtube: true
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      mixer: true
+      http: true
+      local: false
+    lavaplayer:
+      nonAllocating: false # Whether to use the non-allocating frame buffer.
+      frameBufferDuration: 5000 # The frame buffer duration, in milliseconds
+      youtubePlaylistLoadLimit: 6 # Number of pages at 100 each
+      gc-warnings: true
+      youtubeSearchEnabled: true
+      soundcloudSearchEnabled: true
+    youtubeConfig: # Required for avoiding all age restrictions by YouTube, some restricted videos still can be played without.
+      email: "" # Email of Google account
+      password: "" # Password of Google account
+metrics:
+  prometheus:
+    enabled: true
+    endpoint: /metrics
+
+sentry:
+  dsn: ""
+  environment: ""
+
+logging:
+  file:
+    max-history: 30
+    max-size: 1GB
+  path: ./logs/
+
+  level:
+    root: INFO
+    lavalink: INFO
